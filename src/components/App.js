@@ -18,15 +18,14 @@ function sendMessage(messages, count) {
 function App() {
   const [count, setCount] = useState(1);
 
-  function handleSteps(direction) {
-    console.log(direction);
-    if (direction === 'next' && count < 3) {
-
+  function handleSteps(event) {
+    let name = event.currentTarget.name;
+    console.log(name);
+    if (name === 'next' && count < 3) {
       setCount((c) => c + 1);
       console.log(count);
     }
-    if (direction === 'prev' && count > 1) {
-
+    if (name === 'prev' && count > 1) {
       setCount((c) => c - 1);
       console.log(count);
     }

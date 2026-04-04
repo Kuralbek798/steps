@@ -14,8 +14,8 @@ function Step({count, handleSteps,message}) {
       </div>
       <p className="message">{message}</p>
       <div className="buttons ">
-        <button className="btnStyle" onClick={() => handleSteps('prev')} >Previous</button>
-        <button className="btnStyle" onClick={() => handleSteps('next')}>Next</button>
+        <button name="prev" className="btnStyle" onClick={handleSteps} >Previous</button>
+        <button name="next" className="btnStyle" onClick={handleSteps}>Next</button>
       </div>
     </>
   );
