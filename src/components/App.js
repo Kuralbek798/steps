@@ -17,9 +17,14 @@ function sendMessage(messages, count) {
 
 function App() {
   const [count, setCount] = useState(1);
+  const [isOpen, setOpen] = useState(true);
 
-  function handleSteps(event) {
+  function handleBtnClick(event) {
     let name = event.currentTarget.name;
+   
+    if(name === 'close'){
+      setOpen(!isOpen);
+    }
     console.log(name);
     if (name === 'next' && count < 3) {
       setCount((c) => c + 1);
@@ -35,7 +40,7 @@ function App() {
 
   return (
     <div className="steps">
-      <Step count={count} handleSteps={handleSteps} message={message} />
+      <Step count={count} isOpen={isOpen} handleBtnClick={handleBtnClick} message={message} />
     </div>
   );
 }
