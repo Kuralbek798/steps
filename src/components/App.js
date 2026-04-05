@@ -13,24 +13,28 @@ function sendMessage(messages, count) {
 }
 
 function App() {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(Number(localStorage.getItem('stepCount'))|| 1);
   const [isOpen, setOpen] = useState(true);
 
   function handleBtnClick(event) {
     let name = event.currentTarget.name;
 
-    if(name === 'close'){
+    if (name === 'close') {
       setOpen(!isOpen);
     }
-   
+
     if (name === 'next' && count < 3) {
-      setCount((c) => c + 1);      
-    }else if (name === 'prev' && count > 1) {
-      setCount((c) => c - 1);      
+      const newCount = count + 1;
+      setCount(newCount);
+      localStorage.setItem('stepCount', newCount);
+    } else if (name === 'prev' && count > 1) {
+      const newCount = count - 1;
+      setCount(newCount);
+      localStorage.setItem('stepCount', newCount);
     }
   }
 
-  let message = sendMessage(messages,count);
+  let message = sendMessage(messages, count);
 
   return (
     <div className="steps">
