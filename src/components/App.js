@@ -20,7 +20,7 @@ function App() {
     let name = event.currentTarget.name;
 
     if (name === 'close') {
-      setOpen(!isOpen);
+      setOpen((is) => !is);
     }
 
     if (name === 'next' && count < 3) {
