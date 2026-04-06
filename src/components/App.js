@@ -37,9 +37,10 @@ function App() {
   let message = sendMessage(messages, count);
 
   return (
-    <div className="steps">
+    <>
       <Step count={count} isOpen={isOpen} handleBtnClick={handleBtnClick} message={message} />
-    </div>
+      
+    </>
   );
 }
 

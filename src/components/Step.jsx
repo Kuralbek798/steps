@@ -1,14 +1,15 @@
 import { useState } from "react";
 import "../styles/index.css";
 
-function Step({ count, isOpen, handleBtnClick, message }) {  
+function Step({ count, isOpen, handleBtnClick, message }) { 
+   
   return (
-    <>
+    <div className="steps">
       <button name ="close" className="close" onClick={handleBtnClick}>
         &times;
       </button>
       {isOpen && (
-        <div className="steps">
+        <>
           <div className="numbers">
             <div className={` '' ${count >= 1 ? "active" : ""}`}>1</div>
             <div className={` '' ${count >= 2 ? "active" : ""}`}>2</div>
@@ -25,9 +26,9 @@ function Step({ count, isOpen, handleBtnClick, message }) {
               Next
             </button>
           </div>
-        </div>
+        </>
       )}
-    </>
+    </div>
     
   );
 }
